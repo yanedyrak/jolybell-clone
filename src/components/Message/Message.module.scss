@@ -1,0 +1,13 @@
+.message {
+  display: flex;
+  justify-content: center;
+  margin: auto 0 auto 0;
+  word-spacing: 15px;
+  .white {
+    line-height: 40px;
+    word-spacing: 100px;
+    padding: 5px 10px 5px 10px;
+    background-color: black;
+    color: white;
+  }
+}

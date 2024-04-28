@@ -6,22 +6,22 @@ const Footer = () => {
   return (
     <div className={styles.footer}>
       <div className={styles.menu}>
-        <Link className={styles.link} to="/sweatshirts">
+        <Link className={styles.link} to="/t-shirts">
           Футболки
         </Link>
         <Link className={styles.link} to="/sweatshirts">
           Свитшоты
         </Link>
-        <Link className={styles.link} to="/hodies">
+        <Link className={styles.link} to="/hoodies">
           Худи
         </Link>
-        <Link className={styles.link} to="/sweatshirts">
+        <Link className={styles.link} to="/pants">
           Штаны/Шорты
         </Link>
-        <Link className={styles.link} to="/sweatshirts">
+        <Link className={styles.link} to="/polo">
           Поло
         </Link>
-        <Link className={styles.link} to="/sweatshirts">
+        <Link className={styles.link} to="/shirts">
           Рубашки
         </Link>
         <Link className={styles.link} to="/sweatshirts">

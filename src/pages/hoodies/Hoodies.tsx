@@ -12,7 +12,7 @@ interface Data {
 }
 const Hoodies = () => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
-  const [state, setState] = useState<any>();
+  const [state, setState] = useState<Data[]>([]);
   useEffect(() => {
     axios
       .get(
@@ -32,14 +32,7 @@ const Hoodies = () => {
       <div className={styles.items}>
         {isLoading
           ? new Array(6).fill(0).map((_, index) => <Skeleton key={index} />)
-          : state.map((el: Data) => (
-              <Item
-                title={el.title}
-                key={el.id}
-                price={el.price}
-                url={el.url}
-              />
-            ))}
+          : state.map((el: Data) => <Item key={el.id} {...el} />)}
       </div>
     </div>
   );

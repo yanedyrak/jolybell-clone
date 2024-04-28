@@ -3,8 +3,8 @@
   height: 190px;
   background: #000;
   text-align: center;
-  img {
-    margin-top: 40px;
+  .logo {
+    margin-top: 30px;
   }
   hr {
     position: relative;
@@ -14,13 +14,23 @@
   }
 }
 .navbar {
-  margin: 20px auto 0 auto;
-  display: flex;
-  justify-content: center;
-  column-gap: 40px;
+  margin-top: 15px;
+  display: grid;
+  grid-template-columns: 1fr max-content 1fr;
   font-weight: 100;
+  .links {
+    grid-column: 2/3;
+    display: flex;
+    align-items: center;
+    column-gap: 30px;
+  }
+  .cart {
+    display: block;
+    justify-content: center;
+    margin: 0;
+  }
   .link {
-    font-size: 17px;
+    font-size: 18px;
     color: white;
     text-decoration: none;
     position: relative;
@@ -36,6 +46,16 @@
     &:hover::before {
       width: 100%;
       left: 0%;
+    }
+  }
+}
+@media (max-width: 1070px) {
+  .container {
+    .navbar {
+      display: none;
+    }
+    .cart {
+      display: none;
     }
   }
 }

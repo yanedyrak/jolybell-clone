@@ -1,9 +1,26 @@
-import "./App.scss";
-import { Link } from "react-router-dom";
+import styles from "./App.module.scss";
+import Faq from "./pages/faq/Faq.tsx";
+import Message from "../src/components/Message/Message.tsx";
+import Sweatshirts from "./pages/sweatshirts/Sweatshirts.tsx";
+import Hoodies from "./pages/hoodies/Hoodies.tsx";
+import Header from "./UI/Header/Header.tsx";
+import Footer from "./UI/Footer/Footer.tsx";
+import { Routes, Route } from "react-router-dom";
+import Shirts from "./pages/shirts/Shirts.tsx";
 function App() {
   return (
     <div>
-      <Link to="/1">fff</Link>
+      <Header />
+      <div className={styles.wrapper}>
+        <Routes>
+          <Route path="/" element={<Message />} />
+          <Route path="/t-shirts" element={<Shirts />} />
+          <Route path="/sweatshirts" element={<Sweatshirts />} />
+          <Route path="/hoodies" element={<Hoodies />} />
+          <Route path="/faq" element={<Faq />} />
+        </Routes>
+        <Footer />
+      </div>
     </div>
   );
 }

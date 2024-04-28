@@ -17,7 +17,7 @@ const Header = () => {
         <Link className={styles.link} to="/sweatshirts">
           СВИТШОТЫ
         </Link>
-        <Link className={styles.link} to="/sweatshirts">
+        <Link className={styles.link} to="/hoodies">
           ХУДИ
         </Link>
         <Link className={styles.link} to="/sweatshirts">

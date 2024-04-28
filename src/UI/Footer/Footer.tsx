@@ -1,6 +1,6 @@
 import styles from "./Footer.module.scss";
-import vk from "./media/vk.png";
-import git from "./media/git.png";
+import vk from "./social/vk.png";
+import git from "./social/git.png";
 import { Link } from "react-router-dom";
 const Footer = () => {
   return (
@@ -12,7 +12,7 @@ const Footer = () => {
         <Link className={styles.link} to="/sweatshirts">
           Свитшоты
         </Link>
-        <Link className={styles.link} to="/sweatshirts">
+        <Link className={styles.link} to="/hodies">
           Худи
         </Link>
         <Link className={styles.link} to="/sweatshirts">

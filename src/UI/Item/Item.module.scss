@@ -2,6 +2,16 @@
   width: 450px;
   height: 560px;
   text-align: center;
+  cursor: pointer;
+  &:hover {
+    .item {
+      filter: brightness(60%);
+    }
+    .button {
+      background-color: black;
+      color: #fff;
+    }
+  }
   .item {
     background-color: white;
     border-radius: 40px;
@@ -27,6 +37,7 @@
     }
   }
   .button {
+    font-size: 17px;
     border: none;
     padding: 20px;
     background: #fff;
@@ -35,14 +46,5 @@
     display: block;
     border-radius: 100px;
     transition: 0.4s;
-  }
-  &:hover {
-    .item {
-      filter: brightness(60%);
-    }
-    .button {
-      background-color: black;
-      color: #fff;
-    }
   }
 }

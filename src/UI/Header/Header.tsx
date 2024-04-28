@@ -35,7 +35,7 @@ const Header = () => {
         <Link className={styles.link} to="/sweatshirts">
           СУВЕНИРЫ
         </Link>
-        <Link className={styles.link} to="/sweatshirts">
+        <Link className={styles.link} to="/faq">
           FAQ
         </Link>
       </div>

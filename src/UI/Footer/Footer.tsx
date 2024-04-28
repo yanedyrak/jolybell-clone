@@ -30,7 +30,7 @@ const Footer = () => {
         <Link className={styles.link} to="/sweatshirts">
           Сувениры
         </Link>
-        <Link className={styles.link} to="/sweatshirts">
+        <Link className={styles.link} to="/faq">
           FAQ
         </Link>
       </div>

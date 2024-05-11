@@ -1,13 +1,12 @@
 import styles from "./Header.module.scss";
-import logo from "/logo.png";
-import cart from "./cart/cart.png";
+import cartImg from "../../assets/cart/cart.svg";
 import { Link } from "react-router-dom";
-
+import logo from "../../assets/logo/logo.png";
 const Header = () => {
   return (
     <div className={styles.container}>
       <Link to="/">
-        <img className={styles.logo} src={logo} alt="" width={230} />
+        <img className={styles.logo} src={logo} width={250} alt="1" />
       </Link>
 
       <hr />
@@ -42,7 +41,7 @@ const Header = () => {
           </Link>
         </div>
         <div className={styles.cart}>
-          <img src={cart} alt="" />
+          <img src={cartImg} alt="" />
         </div>
       </div>
     </div>

@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import styles from "../sweatshirts/Sweatshirts.module.scss";
 import axios from "axios";
-import Item from "../../UI/Item/Item";
-import Skeleton from "../../UI/Skeleton/Skeleton";
+import Item from "../../entities/Item/Item";
+import Skeleton from "../../shared/UI/Skeleton/Skeleton";
 
 interface Data {
   id: number;

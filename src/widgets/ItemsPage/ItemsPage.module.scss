@@ -8,8 +8,9 @@
   }
   margin: 50px auto 100px auto;
   .items {
-    text-align: center;
+    place-items: center;
     display: grid;
+
     grid-template-columns: 1fr 1fr 1fr;
     grid-column-gap: 100px;
     grid-row-gap: 100px;
@@ -17,6 +18,9 @@
 }
 @media (max-width: 1650px) {
   .container {
+    h1 {
+      margin-top: 80px;
+    }
     .items {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -28,6 +32,9 @@
     .items {
       display: grid;
       grid-template-columns: 1fr;
+    }
+    h1 {
+      margin-top: 100px;
     }
   }
 }

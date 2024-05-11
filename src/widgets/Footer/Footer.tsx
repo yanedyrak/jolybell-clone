@@ -1,6 +1,6 @@
 import styles from "./Footer.module.scss";
-import vk from "./social/vk.png";
-import git from "./social/git.png";
+import vk from "../../shared/assets/social/vk.png";
+import git from "../../shared/assets/social/git.png";
 import { Link } from "react-router-dom";
 const Footer = () => {
   return (

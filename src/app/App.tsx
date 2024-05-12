@@ -4,11 +4,11 @@ import ItemsPage from "../widgets/ItemsPage/ItemsPage.tsx";
 import "../main.scss";
 function App() {
   return (
-    <div className="wrapper">
+    <>
       <Header />
       <ItemsPage />
       <Footer />
-    </div>
+    </>
   );
 }
 

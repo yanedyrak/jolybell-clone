@@ -1,4 +1,5 @@
 .footer {
+  margin-top: 100px;
   display: flex;
   padding: 0 100px 0 100px;
   width: 100%;
@@ -35,7 +36,7 @@
   }
   .media {
     display: flex;
-    width: 300px;
+    width: 200px;
     justify-content: space-around;
     .icon {
       color: #fff;
@@ -53,9 +54,28 @@
     }
   }
 }
+@media (max-width: 1100px) {
+  .footer {
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+    .menu {
+      display: none;
+    }
+    .contacts {
+      display: none;
+    }
+  }
+}
 @media (max-width: 800px) {
   .footer {
+    padding: 0;
+    justify-content: center;
+    align-items: center;
     .menu {
+      display: none;
+    }
+    .contacts {
       display: none;
     }
   }

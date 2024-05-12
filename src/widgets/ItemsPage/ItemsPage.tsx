@@ -52,7 +52,7 @@ const ItemsPage: React.FC = () => {
 
   return (
     <div className={styles.container}>
-      <h1>{categoryArr[category]}</h1>
+      <h1 className={styles.itemsTitle}>{categoryArr[category]}</h1>
       <div className={styles.items}>
         {isLoading
           ? new Array(6).fill(0).map((_, index) => <Skeleton key={index} />)

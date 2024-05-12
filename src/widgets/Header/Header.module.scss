@@ -4,6 +4,7 @@
   background: #000;
   text-align: center;
   .logo {
+    width: 250px;
     margin-top: 30px;
     z-index: 10;
     scale: 1.1;
@@ -84,6 +85,21 @@
   font-weight: 200;
   border-bottom: 1px solid #b7b5b5;
 }
+.buttonFlex {
+  margin: 0 auto 0 auto;
+  display: flex;
+  column-gap: 20px;
+  .cartImg {
+    background-color: #000;
+  }
+  .burger {
+    background-color: #000;
+    display: none;
+  }
+  .buttonHeader {
+    background-color: #000;
+  }
+}
 .cartContainer {
   margin: 0px 50px;
   .cartValue {
@@ -107,10 +123,28 @@
 }
 
 @media (max-width: 1200px) {
+  .burger {
+    display: block;
+  }
+  .logoDiv {
+    display: flex;
+    align-items: center;
+    .logo {
+      margin: 0;
+    }
+  }
   .container {
     display: flex;
     height: 150px;
     justify-content: space-between;
+    .navbar {
+      display: flex;
+      .buttonFlex {
+        align-self: center;
+        justify-self: flex-end;
+      }
+    }
+
     .logo {
       margin-left: 30px;
       width: 300px;
@@ -130,7 +164,10 @@
     font-size: 30px;
   }
 }
-@media (max-width: 600px) {
+@media (max-width: 670px) {
+  .logo {
+    max-width: 100px;
+  }
   .cartButton {
     font-size: 20px;
   }

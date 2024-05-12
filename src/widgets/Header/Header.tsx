@@ -7,6 +7,7 @@ import { setCategory } from "../../shared/store/slices/categorySlice";
 import { RootState } from "../../shared/store/store";
 import { useEffect, useRef, useState } from "react";
 import CartItem from "../../entities/CartItem/CartItem";
+import burgerImg from "../../shared/assets/cart/burger.svg";
 const Header = () => {
   const cartDiv = useRef<HTMLDivElement>(null);
   const cartButton = useRef<HTMLButtonElement>(null);
@@ -63,8 +64,8 @@ const Header = () => {
         )}
       </div>
 
-      <Link to="/">
-        <img className={styles.logo} src={logo} width={250} alt="1" />
+      <Link className={styles.logoDiv} to="/">
+        <img className={styles.logo} src={logo} alt="1" />
       </Link>
 
       <hr />
@@ -80,16 +81,27 @@ const Header = () => {
             </a>
           ))}
         </div>
-        <div className={styles.cart}>
-          <button
-            onClick={() => setIsTrue(true)}
-            ref={cartButton}
-            className={styles.cartImg}
-          >
-            <img src={cartImg} alt="" />
-          </button>
-          <div className={styles.counter}>
-            {cartValue.items.reduce((a, b) => a + b.count, 0)}
+        <div className={styles.buttonFlex}>
+          <div className={styles.cart}>
+            <button
+              onClick={() => setIsTrue(true)}
+              ref={cartButton}
+              className={styles.cartImg}
+            >
+              <img src={cartImg} alt="" />
+            </button>
+            <div className={styles.counter}>
+              {cartValue.items.reduce((a, b) => a + b.count, 0)}
+            </div>
+          </div>
+          <div className={styles.cart}>
+            <button
+              onClick={() => setIsTrue(true)}
+              ref={cartButton}
+              className={styles.burger}
+            >
+              <img src={burgerImg} alt="" />
+            </button>
           </div>
         </div>
       </div>

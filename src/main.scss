@@ -30,7 +30,8 @@ body {
   transform: translateX(-100%);
 }
 .wrapper {
-  height: 100%;
+  width: 100%;
+
   display: grid;
   grid-template-rows: 1fr max-content 1fr;
 }

@@ -11,17 +11,28 @@ interface Data {
   title: string;
   price: number;
 }
+const categoryArr: string[] = [
+  "ФУТБОЛКИ",
+  "СВИТШОТЫ",
+  "ХУДИ",
+  "ШТАНЫ/ШОРТЫ",
+  "ПОЛО",
+  "РУБАШКИ",
+  "ПИЖАМА",
+  "СУВЕНИРЫ",
+];
+
+const linkArr: string[] = [
+  "t-shirt",
+  "sweatshirt",
+  "hoodie",
+  "pants",
+  "polo",
+  "shirt",
+  "pijama",
+  "souveniers",
+];
 const ItemsPage: React.FC = () => {
-  const linkArr: string[] = [
-    "t-shirt",
-    "sweatshirt",
-    "hoodie",
-    "pants",
-    "polo",
-    "shirt",
-    "sweatshirt",
-    "sweatshirt",
-  ];
   const category = useSelector(
     (state: RootState) => state.categorySlice.category
   );
@@ -41,7 +52,7 @@ const ItemsPage: React.FC = () => {
 
   return (
     <div className={styles.container}>
-      <h1>1</h1>
+      <h1>{categoryArr[category]}</h1>
       <div className={styles.items}>
         {isLoading
           ? new Array(6).fill(0).map((_, index) => <Skeleton key={index} />)

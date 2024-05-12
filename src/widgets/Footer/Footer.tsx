@@ -1,6 +1,6 @@
 import styles from "./Footer.module.scss";
-import vk from "../../shared/assets/social/vk.png";
-import git from "../../shared/assets/social/git.png";
+
+import github from "../../shared/assets/social/github.svg";
 import { Link } from "react-router-dom";
 const Footer = () => {
   return (
@@ -36,10 +36,7 @@ const Footer = () => {
       </div>
       <div className={styles.media}>
         <a target="_blank" href="https://github.com/yanedyrak">
-          <img src={git} alt="" />
-        </a>
-        <a target="_blank" href="https://vk.com/itoshiJohan">
-          <img src={vk} alt="" />
+          <img className={styles.icon} src={github} alt="" />
         </a>
       </div>
 

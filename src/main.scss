@@ -8,3 +8,41 @@ body {
   background-color: #f9f9f9;
   font-family: "Barlow", sans-serif;
 }
+.modalContainer {
+  overscroll-behavior: contain;
+  overflow: auto;
+  overflow-y: scroll;
+  width: 35vw;
+  height: 100%;
+  body {
+    overflow: hidden;
+  }
+  position: fixed;
+  background-color: white;
+  top: 0;
+  right: -35vw;
+  transition: transform 0.5s;
+  z-index: 100;
+}
+
+.active {
+  transition: transform 0.5s;
+  transform: translateX(-100%);
+}
+.wrapper {
+  height: 100%;
+  display: grid;
+  grid-template-rows: 1fr max-content 1fr;
+}
+@media (max-width: 1200px) {
+  .modalContainer {
+    width: 100vw;
+    right: -100vw;
+  }
+}
+@media (max-width: 450px) {
+  .modalContainer {
+    width: 100%;
+    right: -100%;
+  }
+}

@@ -5,6 +5,8 @@
   text-align: center;
   .logo {
     margin-top: 30px;
+    z-index: 10;
+    scale: 1.1;
   }
   hr {
     position: relative;
@@ -25,19 +27,35 @@
     column-gap: 30px;
   }
   .cart {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin: 0 auto 0 auto;
-    background-color: black;
+    button {
+      display: inline-block;
+      cursor: pointer;
+      background-color: #000;
+      border: none;
+    }
     border: none;
     cursor: pointer;
-    width: fit-content;
-    display: inline-block;
-    justify-content: center;
+
     transition: 0.5s;
+    .counter {
+      display: inline-block;
+      color: #fff;
+      font-weight: 500;
+      font-size: 30px;
+    }
     &:hover {
       scale: 1.2;
     }
   }
   .link {
+    transition: 0.5s;
+    &:hover {
+      scale: 1.1;
+    }
     cursor: pointer;
     font-size: 18px;
     color: white;
@@ -58,13 +76,62 @@
     }
   }
 }
-@media (max-width: 1070px) {
+.cartHeader {
+  cursor: pointer;
+  font-size: 24px;
+  margin: 30px auto 40px auto;
+  padding: 20px 0px 50px 0px;
+  font-weight: 200;
+  border-bottom: 1px solid #b7b5b5;
+}
+.cartContainer {
+  margin: 0px 50px;
+  .cartValue {
+    text-align: left;
+  }
+  .cartPrice {
+    margin-top: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .cartButton {
+    background-color: black;
+    color: white;
+    margin: 15% 0px 20% 0px;
+    padding: 3% 35% 3% 35%;
+    border-radius: 30px;
+    width: 100%;
+    height: min-content;
+  }
+}
+
+@media (max-width: 1200px) {
   .container {
-    .navbar {
+    display: flex;
+    height: 150px;
+    justify-content: space-between;
+    .logo {
+      margin-left: 30px;
+      width: 300px;
+    }
+    .links {
       display: none;
     }
-    .cart {
-      display: none;
-    }
+  }
+  .cartContainer {
+    font-size: 20px;
+  }
+
+  .cartHeader {
+    font-size: 20px;
+  }
+  .cartButton {
+    font-size: 30px;
+  }
+}
+@media (max-width: 600px) {
+  .cartButton {
+    font-size: 20px;
   }
 }

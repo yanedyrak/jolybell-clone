@@ -1,23 +1,23 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import Item from "../../../entities/Item/Item";
-
+import { getFromLS } from "../../../features/getFromLS";
 type Item = {
   id: number;
   price: number;
   url: string;
   title: string;
 };
-type CartItem = Item & {
-  count: 1;
+export type CartItem = Item & {
+  count: number;
 };
 interface IInitialState {
   items: CartItem[];
   totalPrice: number;
 }
-
+const cartData = getFromLS();
 const initialState: IInitialState = {
-  items: [],
-  totalPrice: 0,
+  items: cartData.items,
+  totalPrice: cartData.totalPrice,
 };
 const cartSlice = createSlice({
   name: "cart",

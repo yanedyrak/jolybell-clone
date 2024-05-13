@@ -1,38 +1,35 @@
 import styles from "./Footer.module.scss";
 
 import github from "../../shared/assets/social/github.svg";
-import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { setCategory } from "../../shared/store/slices/categorySlice";
+const categoryArr: string[] = [
+  "ФУТБОЛКИ",
+  "СВИТШОТЫ",
+  "ХУДИ",
+  "ШТАНЫ/ШОРТЫ",
+  "ПОЛО",
+  "РУБАШКИ",
+  "ПИЖАМА",
+  "СУВЕНИРЫ",
+];
 const Footer = () => {
+  const dispatch = useDispatch();
   return (
     <div className={styles.footer}>
       <div className={styles.menu}>
-        <Link className={styles.link} to="/t-shirts">
-          Футболки
-        </Link>
-        <Link className={styles.link} to="/sweatshirts">
-          Свитшоты
-        </Link>
-        <Link className={styles.link} to="/hoodies">
-          Худи
-        </Link>
-        <Link className={styles.link} to="/pants">
-          Штаны/Шорты
-        </Link>
-        <Link className={styles.link} to="/polo">
-          Поло
-        </Link>
-        <Link className={styles.link} to="/shirts">
-          Рубашки
-        </Link>
-        <Link className={styles.link} to="/sweatshirts">
-          Пижама
-        </Link>
-        <Link className={styles.link} to="/sweatshirts">
-          Сувениры
-        </Link>
-        <Link className={styles.link} to="/faq">
-          FAQ
-        </Link>
+        {categoryArr.map((element, index) => (
+          <a
+            key={index}
+            className={styles.link}
+            onClick={() => {
+              window.scrollTo(0, 0);
+              dispatch(setCategory(index));
+            }}
+          >
+            {element}
+          </a>
+        ))}
       </div>
       <div className={styles.media}>
         <a target="_blank" href="https://github.com/yanedyrak">

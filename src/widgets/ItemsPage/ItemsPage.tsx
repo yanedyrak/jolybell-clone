@@ -5,6 +5,7 @@ import Item from "../../entities/Item/Item";
 import Skeleton from "../../shared/UI/Skeleton/Skeleton";
 import { useSelector } from "react-redux";
 import { RootState } from "../../shared/store/store";
+import Message from "../../shared/UI/Message/Message";
 interface Data {
   id: number;
   url: string;
@@ -28,7 +29,7 @@ const linkArr: string[] = [
   "hoodie",
   "pants",
   "polo",
-  "shirt",
+  "shirts",
   "pijama",
   "souveniers",
 ];
@@ -53,11 +54,14 @@ const ItemsPage: React.FC = () => {
   return (
     <div className={styles.container}>
       <h1 className={styles.itemsTitle}>{categoryArr[category]}</h1>
-      <div className={styles.items}>
-        {isLoading
-          ? new Array(6).fill(0).map((_, index) => <Skeleton key={index} />)
-          : state.map((el: Data) => <Item key={el.id} {...el} />)}
-      </div>
+      {category === -1 && <Message />}
+      {category !== -1 && (
+        <div className={styles.items}>
+          {isLoading
+            ? new Array(4).fill(0).map((_, index) => <Skeleton key={index} />)
+            : state.map((el: Data) => <Item key={el.id} {...el} />)}
+        </div>
+      )}
     </div>
   );
 };

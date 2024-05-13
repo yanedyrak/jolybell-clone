@@ -29,7 +29,6 @@ const CartItem: React.FC<ItemProps> = ({ url, id, price, title }) => {
         </p>
         <div className={styles.cart}>
           <span className={styles.value}>{cartItem?.count}</span>
-
           <div className={styles.buttons}>
             <button
               onClick={() => dispatch(addItem({ id, price, url, title }))}

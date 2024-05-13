@@ -1,6 +1,6 @@
 import styles from "./Header.module.scss";
 import cartImg from "../../shared/assets/cart/cart.svg";
-import { Link } from "react-router-dom";
+
 import logo from "../../shared/assets/logo/logo.png";
 import { useDispatch, useSelector } from "react-redux";
 import { setCategory } from "../../shared/store/slices/categorySlice";
@@ -8,12 +8,31 @@ import { RootState } from "../../shared/store/store";
 import { useEffect, useRef, useState } from "react";
 import CartItem from "../../entities/CartItem/CartItem";
 import burgerImg from "../../shared/assets/cart/burger.svg";
+const categoryArr: string[] = [
+  "ФУТБОЛКИ",
+  "СВИТШОТЫ",
+  "ХУДИ",
+  "ШТАНЫ/ШОРТЫ",
+  "ПОЛО",
+  "РУБАШКИ",
+  "ПИЖАМА",
+  "СУВЕНИРЫ",
+];
 const Header = () => {
   const cartDiv = useRef<HTMLDivElement>(null);
   const cartButton = useRef<HTMLButtonElement>(null);
+  const [isBurger, setIsBurger] = useState<boolean>(false);
   const [isTrue, setIsTrue] = useState<boolean>(false);
+  const mounted = useRef(false);
   const cartValue = useSelector((state: RootState) => state.cartSlice);
   const dispatch = useDispatch();
+  useEffect(() => {
+    if (mounted.current) {
+      const json = JSON.stringify(cartValue.items);
+      localStorage.setItem("cart", json);
+    }
+    mounted.current = true;
+  }, [cartValue.items]);
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (
@@ -28,19 +47,32 @@ const Header = () => {
     document.body.addEventListener("click", handleClickOutside);
     return () => document.body.removeEventListener("click", handleClickOutside);
   }, []);
-  const categoryArr: string[] = [
-    "ФУТБОЛКИ",
-    "СВИТШОТЫ",
-    "ХУДИ",
-    "ШТАНЫ/ШОРТЫ",
-    "ПОЛО",
-    "РУБАШКИ",
-    "ПИЖАМА",
-    "СУВЕНИРЫ",
-  ];
 
   return (
     <div className={styles.container}>
+      <div className={`modalContainer ${isBurger ? "active" : ""}`}>
+        <div className={styles.closeButton}>
+          <button
+            onClick={() => setIsBurger(false)}
+            className={styles.burgerButton}
+          >
+            x
+          </button>
+        </div>
+        <div className={styles.burgerLinks}>
+          {categoryArr.map((el, index) => (
+            <div
+              onClick={() => {
+                dispatch(setCategory(index));
+                setIsBurger(false);
+              }}
+              className={styles.link}
+            >
+              {el}
+            </div>
+          ))}
+        </div>
+      </div>
       <div ref={cartDiv} className={`modalContainer ${isTrue ? "active" : ""}`}>
         <div onClick={() => setIsTrue(false)} className={styles.cartHeader}>
           Продолжить покупки
@@ -64,9 +96,9 @@ const Header = () => {
         )}
       </div>
 
-      <Link className={styles.logoDiv} to="/">
+      <div onClick={() => dispatch(setCategory(-1))} className={styles.logoDiv}>
         <img className={styles.logo} src={logo} alt="1" />
-      </Link>
+      </div>
 
       <hr />
       <div className={styles.navbar}>
@@ -95,11 +127,7 @@ const Header = () => {
             </div>
           </div>
           <div className={styles.cart}>
-            <button
-              onClick={() => setIsTrue(true)}
-              ref={cartButton}
-              className={styles.burger}
-            >
+            <button onClick={() => setIsBurger(true)} className={styles.burger}>
               <img src={burgerImg} alt="" />
             </button>
           </div>

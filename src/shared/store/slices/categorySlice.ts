@@ -1,7 +1,7 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  category: 0,
+  category: -1,
 };
 const categorySlice = createSlice({
   name: "category",

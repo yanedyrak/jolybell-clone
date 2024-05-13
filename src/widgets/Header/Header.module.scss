@@ -3,6 +3,9 @@
   height: 190px;
   background: #000;
   text-align: center;
+  .logoDiv {
+    cursor: pointer;
+  }
   .logo {
     width: 250px;
     margin-top: 30px;
@@ -17,6 +20,22 @@
   }
 }
 .navbar {
+  .buttonFlex {
+    margin: 0 auto 0 auto;
+    display: flex;
+    column-gap: 20px;
+    .cartImg {
+      background-color: #000;
+    }
+    .burger {
+      background-color: #000;
+      display: none;
+    }
+
+    .buttonHeader {
+      background-color: #000;
+    }
+  }
   margin: 20px;
   display: grid;
   grid-template-columns: 1fr max-content 1fr;
@@ -85,23 +104,8 @@
   font-weight: 200;
   border-bottom: 1px solid #b7b5b5;
 }
-.buttonFlex {
-  margin: 0 auto 0 auto;
-  display: flex;
-  column-gap: 20px;
-  .cartImg {
-    background-color: #000;
-  }
-  .burger {
-    background-color: #000;
-    display: none;
-  }
-  .buttonHeader {
-    background-color: #000;
-  }
-}
 .cartContainer {
-  margin: 0px 50px;
+  margin: 0px 30px;
   .cartValue {
     text-align: left;
   }
@@ -115,13 +119,39 @@
     background-color: black;
     color: white;
     margin: 15% 0px 20% 0px;
-    padding: 3% 35% 3% 35%;
+    padding: 20px;
     border-radius: 30px;
     width: 100%;
+    transition: 0.4s;
     height: min-content;
+    &:hover {
+      background-color: #fff;
+      color: black;
+    }
   }
 }
-
+.burgerLinks {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  .link {
+    font-size: 30px;
+    color: black;
+    margin: 20px 0px 20px 0px;
+    text-decoration: none;
+  }
+}
+.closeButton {
+  display: flex;
+  justify-content: flex-end;
+  .burgerButton {
+    border: none;
+    font-size: 50px;
+    background: #fff;
+    margin: 40px 40px 0px 0px;
+  }
+}
 @media (max-width: 1200px) {
   .burger {
     display: block;
@@ -140,6 +170,9 @@
     .navbar {
       display: flex;
       .buttonFlex {
+        .burger {
+          display: block;
+        }
         align-self: center;
         justify-self: flex-end;
       }
@@ -164,9 +197,17 @@
     font-size: 30px;
   }
 }
-@media (max-width: 670px) {
-  .logo {
-    max-width: 100px;
+@media (max-width: 500px) {
+  .cartContainer {
+    margin: 20px 10px 30px 10px;
+  }
+}
+
+@media (max-width: 500px) {
+  .container {
+    .logo {
+      width: 150px;
+    }
   }
   .cartButton {
     font-size: 20px;

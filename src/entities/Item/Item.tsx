@@ -12,19 +12,17 @@ export interface ItemProps {
 const Item: React.FC<ItemProps> = ({ id, price, url, title }) => {
   const dispatch = useDispatch();
   return (
-    <div>
-      <div className={styles.container}>
-        <div className={styles.item}>
-          <div className={styles.price}>{price} USD</div>
-          <img className={styles.img} src={url} alt="img" />
-        </div>
-        <button
-          onClick={() => dispatch(addItem({ id, price, url, title }))}
-          className={styles.button}
-        >
-          {title}
-        </button>
+    <div className={styles.container}>
+      <div className={styles.item}>
+        <div className={styles.price}>{price} USD</div>
+        <img className={styles.img} src={url} alt="img" />
       </div>
+      <button
+        onClick={() => dispatch(addItem({ id, price, url, title }))}
+        className={styles.button}
+      >
+        {title}
+      </button>
     </div>
   );
 };
